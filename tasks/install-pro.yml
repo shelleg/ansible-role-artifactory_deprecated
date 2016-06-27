@@ -1,0 +1,16 @@
+---
+
+- name: download artifactory yum repo file
+  get_url:
+      url={{artifactory_repo_url_pro}}
+      dest=/etc/yum.repos.d/{{ artifactory_repo_file }}
+  retries: 3
+
+#- name: download artifactory yum repo file
+#  get_url:
+#      url=http://jfrog.bintray.com/artifactory-pro-rpms/org/artifactory/pro/rpm/jfrog-artifactory-pro/4.8.2/jfrog-artifactory-pro-4.8.2.rpm
+#      dest=/tmp/jfrog-artifactory-pro-4.8.2.rpm
+#  retries: 3
+
+- name: install artifactory rpm
+  yum: name=jfrog-artifactory-pro-{{ artifactory_version }} state=latest

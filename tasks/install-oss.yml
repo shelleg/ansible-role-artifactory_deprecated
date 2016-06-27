@@ -1,0 +1,11 @@
+---
+
+- name: download artifactory yum repo file
+  get_url:
+      url={{artifactory_repo_url_oss}}
+      dest=/etc/yum.repos.d/{{ artifactory_repo_file }}
+  retries: 3
+
+
+- name: install artifactory rpm
+  yum: name=jfrog-artifactory-pro-{{ artifactory_version }} state=latest
