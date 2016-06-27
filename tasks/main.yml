@@ -5,7 +5,7 @@
 - include: verify-installation.yml
 - include: install-{{ artifactory_flavor }}.yml
 
-- include: configure-{{ artifactory_database_engine }}.yml
+#- include: configure-{{ artifactory_database_engine }}.yml
 
 - name: Resigter Artifactory-{{ artifactory_flavor }}
   service: name=artifactory state=started
