@@ -1,7 +1,7 @@
 ---
 # defaults file for artifactory-ansible-role
 artifactory_flavor: oss
-artifactory_version: 4.8.2
+artifactory_version: 4.9.0
 artifactory_user: artifactory
 artifactory_home: /opt/jfrog/artifactory/
 artifactory_repo_url_pro: "https://bintray.com/jfrog/artifactory-pro-rpms/rpm"

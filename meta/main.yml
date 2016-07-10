@@ -1,7 +1,7 @@
 galaxy_info:
-  author: Haggai Philip Zagury
-  description: 
-  company: Tikal Knwoledge LTD
+  author: "Haggai Philip Zagury"
+  description: "A role which installes and configure Artifacfory"
+  company: "Tikal Knwoledge LTD"
   
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -14,7 +14,7 @@ galaxy_info:
   # - GPLv3
   # - Apache
   # - CC-BY
-  license: license (GPLv2, CC-BY, etc)
+  license: "license (GPLv3)"
   
   min_ansible_version: 1.2
 

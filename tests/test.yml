@@ -2,4 +2,6 @@
 - hosts: localhost
   remote_user: root
   roles:
+    - java
+    - dbmanage
     - artifactory-ansible-role
