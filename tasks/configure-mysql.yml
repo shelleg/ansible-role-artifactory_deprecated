@@ -3,8 +3,6 @@
 - name: 'make sure mysql python libs are installed'
   yum: name=MySQL-python state=installed
   when: ansible_os_family == "RedHat"
-#  register: installed
-#  retries: 3
 
 - name: "verify presence of jdbc connector for mysql"
   stat: path={{artifactory_home}}/tomcat/lib/{{artifactory_mysql_jdbc_base}}-bin.jar
@@ -16,10 +14,6 @@
 
 - name: "untar jdbc connector for mysql"
   shell: tar zxvf /tmp/{{artifactory_mysql_jdbc_base}}.tar.gz -C /tmp/
-#  unarchive:
-#    list_files=yes
-#    src=/tmp/{{artifactory_mysql_jdbc_base}}.tar.gz dest=/tmp/{{artifactory_mysql_jdbc_base}}
-#    creates=/tmp/{{artifactory_mysql_jdbc_base}}.tar.gz
   retries: 3
 
 - name: "Copy jdbc to {{artifactory_home}}/tomcat/lib/{{artifactory_mysql_jdbc_base}}-bin.jar"
@@ -28,25 +22,5 @@
     src=/tmp/{{artifactory_mysql_jdbc_base}}/{{artifactory_mysql_jdbc_base}}-bin.jar
     dest={{ artifactory_home }}/tomcat/lib/{{artifactory_mysql_jdbc_base}}-bin.jar
 
-#- name: 'create artifactory database in mysql'
-#  mysql_db:
-#    name={{ artifactory_database_db }}
-#    login_host={{ artifactory_database_hostname }}
-#    login_password={{ artifactory_database_hostname_pass }}
-#    login_user={{ artifactory_database_main_username }}
-#    encoding={{ artifactory_database_encoding }}
-#    state=present
-#
-#- name: 'create artifactory database user in mysql'
-#  mysql_user:
-#    host={{ansible_ssh_host}}
-#    login_host={{artifactory_database_hostname}}
-#    login_user={{artifactory_database_main_username}}
-#    login_password={{artifactory_database_hostname_pass}}
-#    name={{ artifactory_username }}
-#    password={{ artifactory_password }}
-#    priv={{artifactory_database_db}}.*:ALL
-#    state=present
-#
 - name: 'enable mysql driver'
   template: src=mysql.properties.j2 dest={{artifactory_home}}/misc/db/mysql.properties owner=root group=root mode=0644
