@@ -1,10 +1,10 @@
 ---
 ### see REFERENCE Below as needed 
 
-- src: https://github.com/William-Yeh/ansible-oracle-java.git
+- src: https://github.com/shelleg/ansible-role-oracle-java.git
   name: java
 
-- src: https://github.com/shelleg/dbmanage-ansible-role.git
+- src: https://github.com/shelleg/ansible-role-dbmanage.git
   name: dbmanage
 
 ### REFERENCE ###

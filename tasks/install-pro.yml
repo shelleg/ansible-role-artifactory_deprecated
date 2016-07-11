@@ -3,7 +3,7 @@
 # Add external repos || move to insternal sanjer mirror ...
 
 - name: "Add artifactory to source.list"
-  repo='deb https://jfrog.bintray.com/artifactory-pro-debs {distribution} {components}' state=present
+  apt_repository: repo='deb https://jfrog.bintray.com/artifactory-pro-debs {distribution} {components}' state=present
   when: ansible_os_family == "Debian"
 
 - name: download artifactory yum repo file
@@ -15,7 +15,7 @@
 
 # Install the package.
 
-- name: "Iinstall artifactory deb package"
+- name: "Install artifactory deb package"
   apt: name=jfrog-artifactory-pro={{ artifactory_version }} state=latest
   when: ansible_os_family == "Debian"
 
